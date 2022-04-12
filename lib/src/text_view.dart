@@ -38,7 +38,7 @@ class _TextViewState extends State<TextView> {
   void _onPlatformViewCreated(int id) async{
     debugPrint("   ----  _TextViewState _onPlatformViewCreated ${id}");
     final _controller = TextViewController(id);
-    _controller.setText("上位から設定された文字");
+    _controller.setText(widget.text);
   }
 }
 

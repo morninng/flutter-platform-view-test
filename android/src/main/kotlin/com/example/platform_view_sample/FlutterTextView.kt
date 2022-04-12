@@ -31,9 +31,10 @@ class FlutterTextView(
         when (call.method) {
             "setText" -> {
 //                textView.text = call.arguments as String
+                val arguments = call.arguments
 
-                Log.d(" --- ", " ---- FlutterTextView onMethodCall")
-                textView.text = "aaaaa bbbbb ccccc";
+                Log.d(" --- ", " ---- FlutterTextView onMethodCall arguments ${arguments}")
+                textView.text = arguments as String;
                 result.success(null)
             }
             else -> result.notImplemented()

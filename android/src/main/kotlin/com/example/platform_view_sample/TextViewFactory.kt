@@ -18,4 +18,3 @@ class TextViewFactory(
         return FlutterTextView(context, messanger, viewId);
     }
 }
-

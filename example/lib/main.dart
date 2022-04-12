@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
 
-
-
 import 'package:flutter/services.dart';
 import 'package:platform_view_sample/platform_view_sample.dart';
 import 'package:platform_view_sample/src/text_view.dart';
-
-
 
 void main() {
   runApp(const MyApp());
@@ -35,8 +31,8 @@ class _MyAppState extends State<MyApp> {
     // Platform messages may fail, so we use a try/catch PlatformException.
     // We also handle the message potentially returning null.
     try {
-      platformVersion =
-          await PlatformViewSample.platformVersion ?? 'Unknown platform version';
+      platformVersion = await PlatformViewSample.platformVersion ??
+          'Unknown platform version';
     } on PlatformException {
       platformVersion = 'Failed to get platform version.';
     }
@@ -55,20 +51,24 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     debugPrint("---- main _MyAppState build() aaa");
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Plugin example app ddd hhh'),
-        ),
-        body: Center(
-          // children: [
-          child:
-            // const Text('sss')
-            // const Text('aaa')
-          // ]
-
-            TextView("Hello this is Android Text View ddd jjj"),
-        ),
-      ),
-    );
+        home: Scaffold(
+            appBar: AppBar(
+              title: const Text('Plugin example app ddd hhh'),
+            ),
+            body: Row(children: const [
+              Text('sss'),
+              Text('aaa'),
+              SizedBox(
+                width: 100,
+                height: 100,
+                child: TextView("Hello this is Android Text View ddd jjj"),
+              ),
+              Text('bbb'),
+              SizedBox(
+                width: 100,
+                height: 100,
+                child: TextView("kkk lll mmm"),
+              ),
+            ])));
   }
 }
