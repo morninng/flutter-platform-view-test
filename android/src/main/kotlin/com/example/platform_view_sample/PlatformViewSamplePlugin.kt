@@ -7,6 +7,11 @@ import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
+import android.util.Log
+
+import FlutterTextView;
+import TextViewFactory;
+
 
 /** PlatformViewSamplePlugin */
 class PlatformViewSamplePlugin: FlutterPlugin, MethodCallHandler {
@@ -17,6 +22,16 @@ class PlatformViewSamplePlugin: FlutterPlugin, MethodCallHandler {
   private lateinit var channel : MethodChannel
 
   override fun onAttachedToEngine(@NonNull flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
+
+
+    Log.d("----- ", " --- onAttachedToEngine ")
+
+    flutterPluginBinding.platformViewRegistry
+    .registerViewFactory(
+        "plugins.team.itome/textview",
+        TextViewFactory(flutterPluginBinding.binaryMessenger)
+    )
+
     channel = MethodChannel(flutterPluginBinding.binaryMessenger, "platform_view_sample")
     channel.setMethodCallHandler(this)
   }

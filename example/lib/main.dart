@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
 
+
+
 import 'package:flutter/services.dart';
 import 'package:platform_view_sample/platform_view_sample.dart';
+import 'package:platform_view_sample/src/text_view.dart';
+
+
 
 void main() {
   runApp(const MyApp());
@@ -48,13 +53,20 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
+    debugPrint("---- main _MyAppState build() aaa");
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Plugin example app'),
+          title: const Text('Plugin example app ddd hhh'),
         ),
         body: Center(
-          child: Text('Running on: $_platformVersion\n'),
+          // children: [
+          child:
+            // const Text('sss')
+            // const Text('aaa')
+          // ]
+
+            TextView("Hello this is Android Text View ddd jjj"),
         ),
       ),
     );
